@@ -8,7 +8,9 @@ const router = require('./routes/userRoutes');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 // const { authMiddleware } = require('./middleware/authMiddleware');
+
 const app = express();
+app.use(cors());
 const port = 3000;
 
 // initialize dotenv
@@ -18,7 +20,6 @@ require('dotenv').config();
 app.get('/', (req, res) => res.send('Hello World!'));
 
 
-app.use(cors());
 // body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
